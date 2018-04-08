@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="stylesheet/mystyle.css"/>
     </head>
     <body>
+        <?php ?>
         <div class="container ">
             <form method="post" action="Login.php" role="form" id="form" class="form-signin">
     <h2 class="form-signin-heading">Login View</h2>
