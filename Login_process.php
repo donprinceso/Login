@@ -9,22 +9,21 @@ if (!$con){
     }
     
     $error=array();
+   $email="";
+   $password="";
    
     if(isset($_POST["Login.php"])){
         $email= mysqli_real_escape_string($email);
         $password= md5(mysqli_real_escape_string($password));
     }
-    if(!$email){
+   if(empty($email)){
         $error="Invalid Email Address";
     }
-    if(!$password){
+    if(empty($password)){
         $error="Invalid Password";
     }
-    $sql="select * from User where email='$email'";
-    $result= mysqli_query($con, $sql);
-    if(mysqli_num_rows($result)>0){
-        if($count==0){
-           $sql="select * from User where password='$password'";
+        if($error==0){
+           $sql="select * from user where password='$password' And email='$email'";
     $result= mysqli_query($con, $sql); 
     if(mysqli_num_rows($result)>0){
         while ($row = mysql_fetch_row($result)) {
@@ -34,7 +33,6 @@ if (!$con){
  else {
       $error= '<b>Login Failed: </b>Wrong Email Or Password'; 
     }
-        }
-    } else {
-        $error='<b>Login Failed: </b>Email Address do not exit';
+        
 }
+   
