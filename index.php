@@ -12,10 +12,14 @@
         
     </head>
     <body>
-        <?php ?>
+        <?php require_once 'Login_process.php'; ?>
         <div class="container ">
             <form method="post" action="Login.php" role="form" id="form" class="form-signin">
     <h2 class="form-signin-heading">Login View</h2>
+    <?php if(isset($error)){
+     echo $error; 
+    }
+?>
     <div class="form-group">
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" class="form-control" id="inputEmail" placeholder="Email address" required autofocus/>
@@ -27,7 +31,7 @@
    <div class="checkbox">
     <label><input type="checkbox" value="remember-me"> Remember me</label>
   </div>
-  <button type="submit" class="btn btn-lg btn-primary btn-block" id="submit">Submit</button>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" name="login">Submit</button>
   <br>
   <p>Create An Account:
       <a class="btn btn-default" href="#">Sign Up</a>
