@@ -8,31 +8,34 @@ if (!$con){
     die("connection failed:".mysqli_connect_errno());
     }
     
-    $error=array();
-   $email="";
-   $password="";
-   
+    $errors=array();
+   if($_SERVER['REQUEST_METHOD']=='POST'){
     if(isset($_POST["Login.php"])){
-        $email= mysqli_real_escape_string($email);
-        $password= md5(mysqli_real_escape_string($password));
-    }
-   if(empty($email)){
-        $error="Invalid Email Address";
+        $email= mysqli_real_escape_string($con,$_POST['email']);
+        $password=mysqli_real_escape_string($con,$_POST['password']);
+    
+    if(empty($email)){
+        array_push($errors,'<b>Login Failed:</b>Invalid Email Address');
     }
     if(empty($password)){
-        $error="Invalid Password";
+        array_push($errors,'<b>Login Failed:</b>Invalid Password');
     }
-        if($error==0){
-           $sql="select * from user where password='$password' And email='$email'";
-    $result= mysqli_query($con, $sql); 
-    if(mysqli_num_rows($result)>0){
-        while ($row = mysql_fetch_row($result)) {
-            header("Location:dashboard.php");
-        }
+     if(strlen($password) < 6){			
+	 array_push($errors,"Password should not be less than 6 characters");
     }
+    $sql="SELECT password FROM user WHERE email = '$email' and password ='$password'";
+    $result= mysqli_query($con, $sql);
+   // $row= mysqli_fetch_array($result,MYSQLI_ASSOC);
+   // $active=$row['active'];
+    $count= mysqli_num_rows($result);
+   if($count>0){
+      // session_register("email");
+     //  $_SESSION['email']=$email;
+    header('location:dashbord.php');
+   }
+    
  else {
-      $error= '<b>Login Failed: </b>Wrong Email Or Password'; 
-    }
-        
+      array_push($errors,'<b>Login Failed:</b>Wrong Email And Password');  
 }
-   
+   }
+   }

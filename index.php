@@ -16,17 +16,15 @@
         <div class="container ">
             <form method="post" action="Login.php" role="form" id="form" class="form-signin">
     <h2 class="form-signin-heading">Login View</h2>
-    <?php if(isset($error)){
-     echo $error; 
-    }
+    <?php require_once 'Error.php';
 ?>
     <div class="form-group">
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email address" required autofocus/>
+        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email address" required autofocus/>
     </div> 
     <div class="form-group">
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" class="form-control" id="InputPassword" placeholder="Password"/>
+        <input type="password" class="form-control" id="InputPassword" placeholder="Password" name="password"/>
     </div>  
    <div class="checkbox">
     <label><input type="checkbox" value="remember-me"> Remember me</label>
