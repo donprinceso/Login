@@ -72,3 +72,8 @@
   border-bottom: 5px solid;
   border-left: 5px solid transparent;
 }
+.error{
+    color: red;
+    text-align: center;
+    
+}
