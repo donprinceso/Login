@@ -13,7 +13,7 @@
     </head>
     <body>
         <?php require_once 'Login_process.php'; ?>
-        <div class="container ">
+        <div class="form-container ">
             <form method="post" action="index.php" role="form" id="form" class="form-signin">
     <h2 class="form-signin-heading glyphicon-log-in">Login View</h2>
     <p> <?php require_once 'Error.php';

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
+<?php
+    include 'Function.php';
+?>
+
 <html>
    <head>
        <meta charset="windows-1252">
@@ -28,9 +28,13 @@ and open the template in the editor.
         </nav>
       </div>
         </div>
-        <div class="container-fluid">
+        <div class="container">
             <div class="dropdown-menu-left meun">
-                
+                <img src="default_male.png" class="user-img" alt="User image"/>
+                <div><?php  if(isset($_SESSION['email'])):?>
+                    <strong><?php echo $_SESSION['email']['email'];?></strong>> 
+                    <hr/>
+                   <?php endif ?></div>
             </div>
         </div>
         

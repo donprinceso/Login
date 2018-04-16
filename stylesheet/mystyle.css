@@ -6,7 +6,7 @@
    border-radius: 5px;
    box-shadow: 5px 5px 10px 10px grey;
 }
-.container{
+.form-container{
   margin-top:40px;
 }
 .form-signin-heading{
@@ -35,7 +35,9 @@
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}.blog-masthead {
+}
+
+.blog-masthead {
   background-color: #428bca;
   -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
           box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
