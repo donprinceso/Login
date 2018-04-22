@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <?php
+    session_start();
     include 'Function.php';
 ?>
 
@@ -17,27 +18,36 @@
         <link rel="stylesheet" type="text/css" href="stylesheet/Cascade.css"/>
     </head>
     <body>
-        <div class="blog-masthead navbar-fixed-top">
+        <div class="blog-masthead ">
       <div class="container">
         <nav class="blog-nav ">
-          <a class="blog-nav-item active" href="#">Home</a>
-          <a class="blog-nav-item" href="#">Sport</a>
-          <a class="blog-nav-item" href="#">Gist</a>
-          <a class="blog-nav-item" href="#">Education</a>
-          <a class="blog-nav-item navbar-right" href="Logout.php">Log Out</a>
+          <li class="blog-nav-item active"><a class="blog-nav-item "href="#">Home</a></li>
+          <li class="blog-nav-item "><a class="blog-nav-item "href="#">Inbox</a></li>
+          <li class="blog-nav-item "><a class="blog-nav-item "href="#">Plane</a></li>
+          <li class="blog-nav-item "><a class="blog-nav-item "href="#">Contan</a></li>
+          <nav class="blog-nav navbar-right">
+          <li class="blog-nav-item" href="#"> Hi <?php echo $_SESSION['email'];?></li>
+          <li class="blog-nav-item " ><a class="blog-nav-item "href="Logout.php">Log Out</a></li>
+          </nav>
         </nav>
+          
       </div>
         </div>
-        <div class="container">
-            <div class="dropdown-menu-left meun">
-                <img src="default_male.png" class="user-img" alt="User image"/>
-                <div><?php  if(isset($_SESSION['email'])):?>
-                    <strong><?php echo $_SESSION['email']['email'];?></strong>> 
-                    <hr/>
-                   <?php endif ?></div>
-            </div>
-        </div>
         
+            <div class="dropdown-menu-left meun">
+                <img src="default_male.png" class="user-img" alt="User image"/> 
+                <br/>
+                <?php if (isset($_SESSION['email'])){
+                        echo $_SESSION['email'];
+                }
+                ?>
+            </div>
+        <div class="container">
+             <?php  if(isset($_SESSION['email'])):?>
+            <p> Welcome <?php echo $_SESSION['email'];?></p>
+               <p>Hello this is Serverland Tech Company the best of software company ever</p>     
+                   <?php endif ?>   
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="js/bootstrap.min.js"></script>

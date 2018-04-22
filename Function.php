@@ -3,9 +3,12 @@ require_once 'Database.php';
  $con= mysqli_connect(dbserver,dbuser,dbpassword,dbname);
 
  function getUserEmail($email){
-     global $con;
-     $sql="Select * from user Where email='$email'";
+    global $con;
+     $sql="Select email from user Where email='$email'";
      $res= mysqli_query($con, $sql);
-     $email_user= mysqli_fetch_assoc($result);
+     
+     while ($rows= mysqli_fetch_assoc($res)){
+         $email_user=$rows['email'];
+     }
      return $email_user;
  }

@@ -3,15 +3,19 @@
     padding: 0px;
 }
 .meun{
-    border: 2px solid #e5e5e5;
-    min-height: 664px;
+    
+    min-height: 605px;
     width: 200px;
     background-color:steelblue;
+    float: left;
  
 }
 .user-img{
-    margin: 60px 40px 40px 40px;
+    margin: 30px 0px 20px 40px;
     height: 110px;
     width: 110px;   
+}
+.panel-body{
+    margin-top: 10px;
 }
 

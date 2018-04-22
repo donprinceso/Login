@@ -2,7 +2,7 @@
 session_start();
 // connecting the datbase
 require_once'Database.php';
-require 'Function.php';
+include 'Function.php';
 $con = mysqli_connect(dbserver,dbuser,dbpassword,dbname);
 
 if (!$con){
@@ -29,8 +29,8 @@ if (!$con){
     $result= mysqli_query($con, $sql);
     $count= mysqli_num_rows($result);
    if($count==1){
-      $user_check_mail= mysqli_insert_id($con);
-      $_SESSION['email']= getUserEmail($user_check_mail);
+     // $user_check_mail= mysqli_insert_id($con);
+      $_SESSION['email']= getUserEmail($email);
     header("location: welcome_page.php");
    }
     }
